@@ -165,8 +165,25 @@
               <e p="app.component.ts" t="Include" />
               <e p="app.module.ts" t="Include" />
               <e p="app.server.module.ts" t="Include" />
+              <e p="calendar" t="Include">
+                <e p="calendar.component.css" t="Include" />
+                <e p="calendar.component.html" t="Include" />
+                <e p="calendar.component.ts" t="Include" />
+              </e>
+              <e p="create-event" t="Include">
+                <e p="create-event.component.html" t="Include" />
+                <e p="create-event.component.ts" t="Include" />
+              </e>
               <e p="data.services.ts" t="Include" />
-              <e p="product.ts" t="Include" />
+              <e p="nav-menu" t="Include">
+                <e p="nav-menu.component.css" t="Include" />
+                <e p="nav-menu.component.html" t="Include" />
+                <e p="nav-menu.component.ts" t="Include" />
+              </e>
+              <e p="shared" t="Include">
+                <e p="calendarDay.ts" t="Include" />
+                <e p="product.ts" t="Include" />
+              </e>
             </e>
             <e p="assets" t="Include">
               <e p=".gitkeep" t="Include" />
@@ -190,11 +207,11 @@
           <e p="tslint.json" t="Include" />
         </e>
         <e p="Controllers" t="Include">
-          <e p="ProductController.cs" t="Include" />
+          <e p="EventItemController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="ApplicationContext.cs" t="Include" />
-          <e p="Product.cs" t="Include" />
+          <e p="Event.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

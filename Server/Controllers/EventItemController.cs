@@ -5,40 +5,34 @@ using Server.Models;
 namespace Server.Controllers
 {
     [ApiController]
-    [Route("api/products")]
-    public class ProductController : Controller
+    [Route("api/events")]
+    public class EventItemController : Controller
     {
         ApplicationContext db;
-        public ProductController(ApplicationContext context)
+        public EventItemController(ApplicationContext context)
         {
             db = context;
-            if (!db.Products.Any())
-            {
-                db.Products.Add(new Product { Name = "iPhone X", Company = "Apple", Price = 79900 });
-                db.Products.Add(new Product { Name = "Galaxy S8", Company = "Samsung", Price = 49900 });
-                db.Products.Add(new Product { Name = "Pixel 2", Company = "Google", Price = 52900 });
-                db.SaveChanges();
-            }
+            db.SaveChanges();
         }
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IEnumerable<EventItem> Get()
         {
-            return db.Products.ToList();
+            return db.Events.ToList();
         }
  
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public EventItem Get(int id)
         {
-            Product product = db.Products.FirstOrDefault(x => x.Id == id);
+            EventItem product = db.Events.FirstOrDefault(x => x.Id == id);
             return product;
         }
  
         [HttpPost]
-        public IActionResult Post(Product product)
+        public IActionResult Post(EventItem product)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                db.Events.Add(product);
                 db.SaveChanges();
                 return Ok(product);
             }
@@ -46,7 +40,7 @@ namespace Server.Controllers
         }
  
         [HttpPut]
-        public IActionResult Put(Product product)
+        public IActionResult Put(EventItem product)
         {
             if (ModelState.IsValid)
             {
@@ -60,10 +54,10 @@ namespace Server.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            Product product = db.Products.FirstOrDefault(x => x.Id == id);
+            EventItem product = db.Events.FirstOrDefault(x => x.Id == id);
             if (product != null)
             {
-                db.Products.Remove(product);
+                db.Events.Remove(product);
                 db.SaveChanges();
             }
             return Ok(product);

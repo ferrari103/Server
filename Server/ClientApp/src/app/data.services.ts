@@ -1,11 +1,11 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Product } from './product';
+import { Event } from './shared/product';
 
 @Injectable()
 export class DataService {
 
-  private url = "/api/products";
+  private url = "/api/events";
 
   constructor(private http: HttpClient) {
   }
@@ -18,10 +18,10 @@ export class DataService {
     return this.http.get(this.url + '/' + id);
   }
 
-  createProduct(product: Product) {
+  createProduct(product: Event) {
     return this.http.post(this.url, product);
   }
-  updateProduct(product: Product) {
+  updateProduct(product: Event) {
 
     return this.http.put(this.url, product);
   }
